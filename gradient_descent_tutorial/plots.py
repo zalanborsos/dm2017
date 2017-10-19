@@ -26,8 +26,8 @@ def initial_plot(f):
     ax.set_zlim3d(0, 10)
 
     ax2 = fig.add_subplot(1, 2, 2)
-
-    CS = ax2.contour(X, Y, Z)
+    levels = [5, 10, 15, 25, 50, 100, 150]
+    CS = ax2.contour(X, Y, Z, levels)
     ax2.clabel(CS, inline=1, fontsize=10, cmap=cm.coolwarm)
     ax2.set_xlabel('$x_0$')
     ax2.set_ylabel('$x_1$')
@@ -42,8 +42,9 @@ def trajectory_visualization(f, n_iter, trajectory):
     
     fig = plt.figure(figsize=(20, 5))
     ax = fig.add_subplot(1, 2, 2)
-        
-    CS = ax.contour(X, Y, Z)
+    
+    levels = [5, 10, 15, 25, 50, 100, 150]
+    CS = ax.contour(X, Y, Z, levels)
     ax.clabel(CS, inline=1, fontsize=10, cmap=cm.coolwarm)
     ax.set_xlabel('$x_0$')
     ax.set_ylabel('$x_1$')

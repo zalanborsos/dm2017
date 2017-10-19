@@ -1,2 +1,3 @@
 *.pyc
 *pychache*/
+.ipynb_checkpoints/
