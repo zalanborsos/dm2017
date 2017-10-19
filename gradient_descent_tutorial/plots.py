@@ -40,7 +40,7 @@ def trajectory_visualization(f, n_iter, trajectory):
     X, Y = np.meshgrid(x, y)
     Z = f([X, Y])
     
-    fig = plt.figure(figsize=(20, 5))
+    fig = plt.figure(figsize=(20, 9))
     ax = fig.add_subplot(1, 2, 2)
     
     levels = [5, 10, 15, 25, 50, 100, 150]
