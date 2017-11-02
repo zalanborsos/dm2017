@@ -33,6 +33,25 @@ def initial_plot(f):
     ax2.set_ylabel('$x_1$')
     ax2.set_title('$f(\mathbf{x})$')
 
+def plot_gradient(f, f_grad):
+    delta = 0.025
+    x = np.arange(-5.0, 5.0, delta)
+    y = np.arange(-5.0, 5.0, delta)
+    X, Y = np.meshgrid(x, y)
+    Z = f([X, Y])
+    X_2, Y_2 = np.meshgrid(x[::40], y[::40])
+    Z_grad = f_grad([X_2, Y_2])
+    
+    fig = plt.figure(figsize=(6, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    levels = [5, 10, 15, 25, 50, 100, 150]
+    CS = ax.contour(X, Y, Z, levels)
+    ax.clabel(CS, inline=1, fontsize=10, cmap=cm.coolwarm)
+    ax.set_xlabel('$x_0$')
+    ax.set_ylabel('$x_1$')
+    ax.set_title('$f(\mathbf{x})$')
+    plt.quiver(X_2, Y_2, Z_grad[0], Z_grad[1])
+
 def trajectory_visualization(f, n_iter, trajectory):
     delta = 0.025
     x = np.arange(-5.0, 5.0, delta)
